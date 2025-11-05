@@ -1,7 +1,6 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import bodyParser from "body-parser";
 
 const app = express();
 const PORT = process.env.PORT || 10000;
@@ -10,34 +9,33 @@ const PORT = process.env.PORT || 10000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
+// Middleware to parse form data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// Home route
+// Routes
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Handle signup form submission
+app.post("/signup", (req, res) => {
+  const { username, phone, password, confirmPassword } = req.body;
+  console.log("Signup Data:", req.body);
+
+  // For now, just redirect to login (you can replace this with database logic)
+  res.redirect("/login.html");
 });
 
 // Handle login form submission
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
+  console.log("Login Data:", req.body);
 
-  // For now, just simulate success (you can connect DB later)
-  console.log(`Login attempt: ${username}, ${password}`);
-
-  // Redirect to dashboard after "login"
-  res.redirect("/dashboard.html");
-});
-
-// Handle signup form submission
-app.post("/signup", (req, res) => {
-  const { username, phone, password } = req.body;
-
-  // Simulate saving to DB
-  console.log(`Signup attempt: ${username}, ${phone}, ${password}`);
-
-  // Redirect to dashboard
+  // For now, just redirect to dashboard
   res.redirect("/dashboard.html");
 });
 
