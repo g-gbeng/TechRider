@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Profile — TechRider</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<style>
+  :root{--bg:#e8e3f7;--container-w:1100px}
+  body{font-family:"Poppins",sans-serif;background:var(--bg);margin:0}
+  .wrap{max-width:var(--container-w);margin:32px auto;padding:0 20px 120px}
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .profile-card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.04);display:flex;gap:14px;align-items:center}
+  .avatar{width:96px;height:96px;border-radius:12px;object-fit:cover}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a href="/dashboard.html" class="btn btn-link"><i class="bi bi-chevron-left"></i></a>
+      <h4 style="margin:0">Profile</h4>
+      <div style="width:36px"></div>
+    </div>
+
+    <div class="profile-card">
+      <img src="/uploads/profile.jpg" class="avatar" alt="Profile" onerror="this.src='/images/profile-placeholder.png'">
+      <div>
+        <div style="font-weight:800;font-size:1.1rem">John Doe</div>
+        <div style="color:#666">Member since 2025</div>
+        <div style="margin-top:12px">
+          <a href="/settings.html" class="btn" style="background:var(--primary);color:#fff;border-radius:10px;padding:8px 12px">Edit profile</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px">
+      <div style="background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.04)">
+        <strong>Email</strong>
+        <div style="color:#666">you@example.com</div>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div style="background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.04)">
+        <strong>Phone</strong>
+        <div style="color:#666">+234 80X XXX XXXX</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
